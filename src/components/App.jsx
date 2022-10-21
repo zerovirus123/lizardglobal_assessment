@@ -1,5 +1,12 @@
+import API from "./API/API";
+
 function App() {
-  return <div>{/* Complete the exercise here. */}</div>;
+  return (
+    <>
+    <API></API>
+    
+    </>
+  );
 }
 
 export default App;
