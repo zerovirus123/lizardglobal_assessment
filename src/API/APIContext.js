@@ -2,6 +2,7 @@ import {React, createContext, useContext, useMemo, useState} from 'react';
 
 const APIContext = createContext();
 
+// allows API data to be accessed from the Page component
 export const useAPI = () => {
   const context = useContext(APIContext)
 
@@ -12,6 +13,7 @@ export const useAPI = () => {
   return context
 }
 
+// APIContextProvider is used so that the API logic is decoupled from the components
 export const APIContextProvider = ({children}) => {
 
   const [data, setData] = useState([])
