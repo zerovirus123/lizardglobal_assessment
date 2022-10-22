@@ -1,4 +1,4 @@
-import { React, useEffect, useState, useMemo } from 'react'
+import { React, useState, useMemo } from 'react'
 import ReactPaginate from 'react-paginate'
 import "../Page/page.css"
 import { useAPI } from '../../API/APIContext'
