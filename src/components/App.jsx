@@ -4,9 +4,9 @@ import Page from "./Page/Page";
 function App() {
   return (
     <>
-    {/* <APIContextProvider> */}
+    <APIContextProvider>
       <Page />
-    {/* </APIContextProvider> */}
+    </APIContextProvider>
     </>
   );
 }

@@ -1,10 +1,11 @@
-import { React, useEffect, useState } from 'react/cjs/react.development.js'
+import { React, useEffect, useState, useMemo } from 'react'
 import ReactPaginate from 'react-paginate'
 import "../Page/page.css"
+import { useAPI } from '../../API/APIContext'
 
 function splitURL(url)
 {
-    return url.split("?")[0]
+  return url.split("?")[0]
 }
 
 function Items({currentItems}) {
@@ -36,25 +37,16 @@ function Items({currentItems}) {
 
 export const Page = () => {
 
-  const itemsPerPage = 10;
-    const [data, setData] = useState([])
+    const itemsPerPage = 10;
     const [currentItems, setCurrentItems] = useState([])
     const [pageCount, setPageCount] = useState(0)
     const [itemOffset, setItemOffset] = useState(0)
 
-    // gets the items from the API first
-    useEffect(() => {
-        fetch("/api/posts")
-        .then((response) => response.json()
-        )
-        .then((json) => {
-            setData(json.posts)
-        })
-    }, [])
+    const data = useAPI()
 
     // the current data to display and the API data should not be the same array
     // otherwise this hook will constantly change the number of current items and page offsets
-    useEffect(() => {
+    useMemo(() => {
       const endOffset = itemOffset + itemsPerPage
       console.log(`Loading items from ${itemOffset} to ${endOffset}`)
       setCurrentItems(data.slice(itemOffset, endOffset))
@@ -68,7 +60,6 @@ export const Page = () => {
         `User requested page number ${event.selected}, which is offset ${newOffset}`
       );
       setItemOffset(newOffset);
-      
     }
 
   return (

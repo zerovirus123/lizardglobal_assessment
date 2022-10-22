@@ -1,22 +1,38 @@
-import {React, createContext, useEffect, useState} from 'react';
+import {React, createContext, useContext, useMemo, useState} from 'react';
 
-export const APIContext = createContext();
+const APIContext = createContext();
 
-export const APIContextProvider = () => {
+export const useAPI = () => {
+  const context = useContext(APIContext)
+
+  if(!context) {
+    throw new Error("useAPI can only be used inside a APIContextProvider")
+  }
+
+  return context
+}
+
+export const APIContextProvider = ({children}) => {
 
   const [data, setData] = useState([])
 
-    useEffect(() => {
+    // useMemo to improve fetch performance
+    useMemo(() => {
         fetch("/api/posts")
         .then((response) => response.json()
         )
         .then((json) => {
             setData(json.posts)
         })
+        .catch((err) => {
+          console.error(err)
+        })
     }, [])
 
   return (
-    <APIContext.Provider value={data} />
+    <APIContext.Provider value={data}>
+      {children}
+    </APIContext.Provider>
   );
 
 }
