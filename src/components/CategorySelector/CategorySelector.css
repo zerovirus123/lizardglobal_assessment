@@ -1,0 +1,11 @@
+.selector-container{
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+}
+
+.selector{
+    width: 50vw;
+    padding-left: 2rem;
+    padding-top: 0.7rem;
+}
