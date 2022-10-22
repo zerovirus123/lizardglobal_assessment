@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from 'react/cjs/react.development.js'
-import "../API/API.css"
 import ReactPaginate from 'react-paginate'
+import "../Page/page.css"
 
 function splitURL(url)
 {
@@ -28,10 +28,9 @@ function Items({currentItems}) {
   )
 } 
 
+export const Page = () => {
 
-const API = () => {
-
-    const itemsPerPage = 10;
+  const itemsPerPage = 10;
     const [data, setData] = useState([])
     const [currentItems, setCurrentItems] = useState([])
     const [pageCount, setPageCount] = useState(0)
@@ -69,16 +68,16 @@ const API = () => {
     <>
       <Items currentItems={currentItems}/>
       <ReactPaginate
-              breakLabel="..."
-              onPageChange={handlePageClick}
-              pageRangeDisplayed={3} // number of pages to show before the break label
-              pageCount={pageCount}
-              previousLabel="<- Previous"
-              nextLabel="Next ->"
-              renderOnZeroPageCount={null}
+            breakLabel="..."
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={3} // number of pages to show before the break label
+            pageCount={pageCount}
+            previousLabel="<- Previous"
+            nextLabel="Next ->"
+            renderOnZeroPageCount={null}
         />
     </>
   )
 }
 
-export default API
+export default Page;

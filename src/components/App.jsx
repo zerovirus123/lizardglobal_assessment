@@ -1,9 +1,12 @@
-import API from "./API/API";
+import { APIContextProvider } from "../API/APIContext";
+import Page from "./Page/Page";
 
 function App() {
   return (
     <>
-    <API></API>
+    {/* <APIContextProvider> */}
+      <Page />
+    {/* </APIContextProvider> */}
     </>
   );
 }
