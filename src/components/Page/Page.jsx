@@ -57,7 +57,8 @@ export const Page = () => {
     }, [itemOffset, itemsPerPage, data])
 
     const handlePageClick = (event) => {
-      const newOffset = (event.selected * itemsPerPage) % currentItems.length;
+      const newOffset = (event.selected * itemsPerPage) % data.length;
+      console.log(currentItems.length)
       console.log(
         `User requested page number ${event.selected}, which is offset ${newOffset}`
       );
