@@ -13,13 +13,19 @@ function Items({currentItems}) {
       <ul>
       {currentItems && currentItems.map((item, key) => (
           <>
-            <img src={splitURL(item.author.avatar)} key={item} alt={""} />
-            <li key={item.id}>Title: {item.title}</li>
-            <li key={item.id}>Published Date: {item.publishDate}</li>
-            <li key={item.id}>Summary: {item.summary}</li>
-            <li key={item.id}>Author: {item.author.name}</li>
+            <img src={splitURL(item.author.avatar)} alt={""} />
+            <li>Title: {item.title}</li>
+            <li>Published Date: {item.publishDate}</li>
+            <li>Summary: {item.summary}</li>
+            <li>Author: {item.author.name}</li>
+            
+            {item.categories && item.categories.map((category, _) => (
+              <>
+              <li>Category: {category.name}</li>
+              </>
+            ))}
 
-            {/* <li key={item.id}>Avatar: {splitURL(item.author.avatar)}</li> */}
+            {/* <li>Avatar: {splitURL(item.author.avatar)}</li> */}
             <br></br>
           </>
       ))}
@@ -58,11 +64,11 @@ export const Page = () => {
 
     const handlePageClick = (event) => {
       const newOffset = (event.selected * itemsPerPage) % data.length;
-      console.log(currentItems.length)
       console.log(
         `User requested page number ${event.selected}, which is offset ${newOffset}`
       );
       setItemOffset(newOffset);
+      
     }
 
   return (
