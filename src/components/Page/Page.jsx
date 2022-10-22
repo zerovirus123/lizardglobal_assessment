@@ -75,6 +75,11 @@ export const Page = () => {
             previousLabel="<- Previous"
             nextLabel="Next ->"
             renderOnZeroPageCount={null}
+            containerClassName="pagination"
+            pageLinkClassName="page-num"
+            previousLinkClassName="page-num"
+            nextLinkClassName="page-num"
+            activateLinkClassName="active"
         />
     </>
   )
