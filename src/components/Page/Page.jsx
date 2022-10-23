@@ -4,10 +4,6 @@ import "../Page/page.css"
 import { useAPI } from '../../API/APIContext'
 import moment from 'moment/moment'
 
-function splitURL(url)
-{
-  return url.split("?")[0]
-}
 
 function Items({currentItems, selectedOptions}) {
 
@@ -22,6 +18,10 @@ function Items({currentItems, selectedOptions}) {
 
   const parseDateString = (date) => {
     return moment(date).utc().format('YYYY-MM-DD hh:mm:ss A')
+  }
+
+  const splitURL = url => {
+    return url.split("?")[0]
   }
 
   return (
