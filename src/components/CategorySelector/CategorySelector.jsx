@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from 'react-select'
 import { useState } from 'react'
-import "../CategorySelector/CategorySelector.css"
+import "../CategorySelector/CategorySelector.scss"
 
 // hard-coded the categories. in a real production code, categoryOptions
 // can be obtained from a dedicated table in the backend.

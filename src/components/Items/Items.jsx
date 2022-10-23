@@ -1,6 +1,6 @@
 import React from 'react'
 import moment from 'moment/moment'
-import "../Items/Items.css"
+import "../Items/Items.scss"
 
 const Item = ({item}) => {
 

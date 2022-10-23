@@ -1,6 +1,6 @@
 import { React, useState, useMemo } from 'react'
 import ReactPaginate from 'react-paginate'
-import "../Page/Page.css"
+import "../Page/Page.scss"
 import { useAPI } from '../../API/APIContext'
 import Items from '../Items/Items'
 
