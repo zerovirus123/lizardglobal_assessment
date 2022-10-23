@@ -3,6 +3,8 @@ import Select from 'react-select'
 import { useState } from 'react'
 import "../CategorySelector/CategorySelector.css"
 
+// hard-coded the categories. in a real production code, categoryOptions
+// can be obtained from a dedicated table in the backend.
 const categoryOptions = [
     { value: 'Surveys and Forms', label: 'Surveys and Forms' },
     { value: 'Digital Marketing', label: 'Digital Marketing' },
@@ -19,9 +21,14 @@ const categoryOptions = [
     { value: 'Platform News and Updates', label: 'Platform News and Updates' },
   ]
 
-const CategorySelector = () => {
+const CategorySelector = ({setSelectedOptions}) => {
 
   const [selectedOptions, setOptions] = useState([])
+
+  const handleChange = (value) => {
+    setOptions()
+    setSelectedOptions(value)
+  }
 
   return (
     <>
@@ -30,7 +37,7 @@ const CategorySelector = () => {
 
       <Select
         defaultValue={selectedOptions}
-        onChange={setOptions}
+        onChange={handleChange}
         options={categoryOptions}
         className="selector"
         placeholder="Categories"
