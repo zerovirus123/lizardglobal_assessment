@@ -17,12 +17,7 @@ function Items({currentItems, selectedOptions}) {
   })
 
   const foundCategory = (item) => {
-    item.categories.map((category) => {
-      if (selectedOptionsValue.includes(category.name)) {
-        return true
-      }
-      return false
-    })
+    return item.categories.some((category) => selectedOptionsValue.includes(category.name))
   }
 
   const parseDateString = (date) => {
@@ -53,8 +48,7 @@ function Items({currentItems, selectedOptions}) {
                   <div className="data-header">Summary</div>
                   <div className="data-content">{item.summary}</div>
                 </li>
-               
-              </div> : foundCategory(item) ? 
+              </div> : foundCategory(item) ?
               <div className="item-container">
                 <img src={splitURL(item.author.avatar)} alt={""} />
                 <li className="list-content">
@@ -80,7 +74,7 @@ function Items({currentItems, selectedOptions}) {
       </ul>
     </>
   )
-} 
+}
 
 export const Page = ({selectedOptions}) => {
 
