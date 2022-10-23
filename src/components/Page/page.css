@@ -44,6 +44,12 @@ li {
     border: 1px solid black;
     padding: 0.5rem 1rem;
     margin: 0.5rem;
+    transition: all 400ms ease;
+}
+
+.list-content:hover{
+    background: black;
+    color: #fefefe;
 }
 
 .data-header{
