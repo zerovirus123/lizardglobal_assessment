@@ -4,82 +4,40 @@ import { useState } from 'react'
 import "../CategorySelector/CategorySelector.css"
 
 const categoryOptions = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
+    { value: 'Surveys and Forms', label: 'Surveys and Forms' },
+    { value: 'Digital Marketing', label: 'Digital Marketing' },
+    { value: 'Platform News and Updates', label: 'Platform News and Updates' },
+    { value: 'Tips and Best Practise', label: 'Tips and Best Practise' },
+    { value: 'Data Management', label: 'Data Management' },
+    { value: 'Marketing Analytics', label: 'Marketing Analytics' },
+    { value: 'Landing Pages', label: 'Landing Pages' },
+    { value: 'Ecommerce', label: 'Ecommerce' },
+    { value: 'Email Marketing', label: 'Email Marketing' },
+    { value: 'Tips and Best Practise', label: 'Tips and Best Practise' },
+    { value: 'Digital Marketing', label: 'Digital Marketing' },
+    { value: 'Marketing Automation', label: 'Marketing Automation' },
+    { value: 'Platform News and Updates', label: 'Platform News and Updates' },
   ]
-
-// https://codesandbox.io/s/2v5xw3335p?file=/src/index.js:674-1256
-
-// create the Selector as a DropDown menu component 
-const DropDown = props => {
-
-  const options = props.multi
-    ? [{ label: "Select All", value: "all" }, ...props.options]
-    : props.options;
-
-  return(
-    <div className={`react-select-wrapper ${props.multi ? "multi" : ""}`}>
-      <Select
-        name="example"
-        className="selector"
-        placeholder="Categories"
-        options={options}
-        multi={props.multi}
-        value={props.value ? props.value : null}
-        onChange={selected => {
-          props.multi &&
-          selected.length &&
-          selected.find(option => option.value === "all")
-            ? props.onChange(options.slice(1))
-            : !props.multi
-              ? props.onChange((selected && selected.value) || null)
-              : props.onChange(selected);
-        }}
-      />
-    </div>
-  );
-}
 
 const CategorySelector = () => {
 
-  const [selectedValues, setValues] = useState([])
-
-  // const handleMultiChange = (e, no) => {
-  //   setValues(
-  //     selectedValues.map((item) => {
-  //       return selectedValues.indexOf(item) === no
-  //         ? { value: Array.isArray(e) ? e.map((x) => x.value) : [] }
-  //         : item;
-  //     })
-  //   )
-  // } 
-
-  const handleChange = value => {
-    setValues(value)
-  }
+  const [selectedOptions, setOptions] = useState([])
 
   return (
     <>
     <div className="selector-container">
       <h3>Select Category</h3>
-      {/* <Select 
-        options={options}
-        value={selectedValues}
-        placeholder="Categories"
-        className="selector"
-        onChange={handleMultiChange}
-        multi
-      /> */}
-      <DropDown
-        value={selectedValues}
+
+      <Select
+        defaultValue={selectedOptions}
+        onChange={setOptions}
         options={categoryOptions}
-        onChange={handleChange}
-        multi
+        className="selector"
+        placeholder="Categories"
+        isMulti
       />
     </div>
     </>
-    
   )
 }
 
