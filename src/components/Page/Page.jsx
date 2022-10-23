@@ -1,6 +1,6 @@
 import { React, useState, useMemo } from 'react'
 import ReactPaginate from 'react-paginate'
-import "../Page/page.css"
+import "../Page/Page.css"
 import { useAPI } from '../../API/APIContext'
 import moment from 'moment/moment'
 
