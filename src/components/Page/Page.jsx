@@ -2,6 +2,7 @@ import { React, useState, useMemo } from 'react'
 import ReactPaginate from 'react-paginate'
 import "../Page/page.css"
 import { useAPI } from '../../API/APIContext'
+import moment from 'moment/moment'
 
 function splitURL(url)
 {
@@ -24,6 +25,10 @@ function Items({currentItems, selectedOptions}) {
     })
   }
 
+  const parseDateString = (date) => {
+    return moment(date).utc().format('YYYY-MM-DD hh:mm:ss A')
+  }
+
   return (
     <>
       <ul>
@@ -33,14 +38,14 @@ function Items({currentItems, selectedOptions}) {
               <div>
                 <img src={splitURL(item.author.avatar)} alt={""} />
                 <li>Title: {item.title}</li>
-                <li>Published Date: {item.publishDate}</li>
+                <li>Published Date: {parseDateString(item.publishDate)}</li>
                 <li>Summary: {item.summary}</li>
                 <li>Author: {item.author.name}</li>
               </div> : foundCategory(item) ? 
               <div>
                 <img src={splitURL(item.author.avatar)} alt={""} />
                 <li>Title: {item.title}</li>
-                <li>Published Date: {item.publishDate}</li>
+                <li>Published Date: {parseDateString(item.publishDate)}</li>
                 <li>Summary: {item.summary}</li>
                 <li>Author: {item.author.name}</li>
               </div> 
