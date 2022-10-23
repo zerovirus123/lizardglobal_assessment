@@ -7,8 +7,6 @@ function App() {
 
   const [selectedOptions, setSelectedOptions] = useState([])
 
-  console.log("selected options in app: ", selectedOptions)
-
   return (
     <>
     <APIContextProvider>
