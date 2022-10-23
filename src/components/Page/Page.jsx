@@ -8,26 +8,44 @@ function splitURL(url)
   return url.split("?")[0]
 }
 
-function Items({currentItems}) {
+function Items({currentItems, selectedOptions}) {
+
+  let selectedOptionsValue = []
+  selectedOptions.map((option) => {
+    selectedOptionsValue.push(option.value)
+  })
+
+  const foundCategory = (item) => {
+    item.categories.map((category) => {
+      if (selectedOptionsValue.includes(category.name)) {
+        return true
+      }
+      return false
+    })
+  }
+
   return (
     <>
       <ul>
       {currentItems && currentItems.map((item, key) => (
           <>
-            <img src={splitURL(item.author.avatar)} alt={""} />
-            <li>Title: {item.title}</li>
-            <li>Published Date: {item.publishDate}</li>
-            <li>Summary: {item.summary}</li>
-            <li>Author: {item.author.name}</li>
-            
-            {item.categories && item.categories.map((category, _) => (
-              <>
-              <li>Category: {category.name}</li>
-              </>
-            ))}
-
-            {/* <li>Avatar: {splitURL(item.author.avatar)}</li> */}
-            <br></br>
+            {selectedOptions.length === 0 ?
+              <div>
+                <img src={splitURL(item.author.avatar)} alt={""} />
+                <li>Title: {item.title}</li>
+                <li>Published Date: {item.publishDate}</li>
+                <li>Summary: {item.summary}</li>
+                <li>Author: {item.author.name}</li>
+              </div> : foundCategory(item) ? 
+              <div>
+                <img src={splitURL(item.author.avatar)} alt={""} />
+                <li>Title: {item.title}</li>
+                <li>Published Date: {item.publishDate}</li>
+                <li>Summary: {item.summary}</li>
+                <li>Author: {item.author.name}</li>
+              </div> 
+              : null
+            }
           </>
       ))}
       </ul>
@@ -35,7 +53,7 @@ function Items({currentItems}) {
   )
 } 
 
-export const Page = () => {
+export const Page = ({selectedOptions}) => {
 
     const itemsPerPage = 10;
     const [currentItems, setCurrentItems] = useState([])
@@ -64,7 +82,7 @@ export const Page = () => {
 
   return (
     <>
-      <Items currentItems={currentItems}/>
+      <Items currentItems={currentItems} selectedOptions={selectedOptions} />
       <ReactPaginate
             breakLabel="..."
             onPageChange={handlePageClick}
