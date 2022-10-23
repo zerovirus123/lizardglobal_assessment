@@ -31,25 +31,49 @@ function Items({currentItems, selectedOptions}) {
 
   return (
     <>
-      <ul>
+      <ul className="list">
       {currentItems && currentItems.map((item, key) => (
           <>
             {selectedOptions.length === 0 ?
-              <div>
+              <div className="item-container">
                 <img src={splitURL(item.author.avatar)} alt={""} />
-                <li>Title: {item.title}</li>
-                <li>Published Date: {parseDateString(item.publishDate)}</li>
-                <li>Summary: {item.summary}</li>
-                <li>Author: {item.author.name}</li>
+                <li className="list-content">
+                  <div className="data-header">Title</div>
+                  <div className="data-content">{item.title}</div>
+                </li>
+                <li className="list-content">
+                  <div className="data-header">Author</div>
+                  <div className="data-content">{item.author.name}</div>
+                </li>
+                <li className="list-content">
+                  <div className="data-header">Published Date</div>
+                  <div className="data-content">{parseDateString(item.publishDate)}</div>
+                </li>
+                <li className="list-content">
+                  <div className="data-header">Summary</div>
+                  <div className="data-content">{item.summary}</div>
+                </li>
+               
               </div> : foundCategory(item) ? 
-              <div>
+              <div className="item-container">
                 <img src={splitURL(item.author.avatar)} alt={""} />
-                <li>Title: {item.title}</li>
-                <li>Published Date: {parseDateString(item.publishDate)}</li>
-                <li>Summary: {item.summary}</li>
-                <li>Author: {item.author.name}</li>
-              </div> 
-              : null
+                <li className="list-content">
+                  <div className="data-header">Title</div>
+                  <div className="data-content">{item.title}</div>
+                </li>
+                <li className="list-content">
+                  <div className="data-header">Author</div>
+                  <div className="data-content">{item.author.name}</div>
+                </li>
+                <li className="list-content">
+                  <div className="data-header">Published Date</div>
+                  <div className="data-content">{parseDateString(item.publishDate)}</div>
+                </li>
+                <li className="list-content">
+                  <div className="data-header">Summary</div>
+                  <div className="data-content">{item.summary}</div>
+                </li>
+              </div> : null
             }
           </>
       ))}

@@ -1,4 +1,8 @@
-li {list-style-type: none;}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
+li {
+    list-style-type: none;
+}
 
 .pagination{
     list-style: none;
@@ -20,4 +24,33 @@ li {list-style-type: none;}
 .pagination .page-num:hover{
     background-color: #5AB1BB;
     color: #fff;
+}
+
+.item-container{
+    width: 400px;
+    border-radius: 12px;
+    border: 3px solid black;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.list-content{
+    border-radius: 6px;
+    border: 1px solid black;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+}
+
+.data-header{
+    font-size: 24px;
+}
+
+.data-content{
+    font-size: 18px;
+    margin-bottom: 1rem;
 }
