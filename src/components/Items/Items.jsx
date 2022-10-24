@@ -16,23 +16,23 @@ const Item = ({item}) => {
   return (
     <>
       <div className="item-container">
-        <img src={splitURL(item.author.avatar)} alt={""} />
-        <li className="list-content">
-          <div className="data-header">Title</div>
-          <div className="data-content">{item.title}</div>
-        </li>
-        <li className="list-content">
-          <div className="data-header">Author</div>
-          <div className="data-content">{item.author.name}</div>
-        </li>
-        <li className="list-content">
-          <div className="data-header">Published Date</div>
-          <div className="data-content">{parseDateString(item.publishDate)}</div>
-        </li>
-        <li className="list-content">
-          <div className="data-header">Summary</div>
-          <div className="data-content">{item.summary}</div>
-        </li>
+      <img src={splitURL(item.author.avatar)} alt={""} />
+      <li className="list-content">
+        <div className="data-header">Title</div>
+        <div className="data-content">{item.title}</div>
+      </li>
+      <li className="list-content">
+        <div className="data-header">Author</div>
+        <div className="data-content">{item.author.name}</div>
+      </li>
+      <li className="list-content">
+        <div className="data-header">Published Date</div>
+        <div className="data-content">{parseDateString(item.publishDate)}</div>
+      </li>
+      <li className="list-content">
+        <div className="data-header">Summary</div>
+        <div className="data-content">{item.summary}</div>
+      </li>
       </div>
     </>
   )
@@ -55,11 +55,11 @@ const Items = ({currentItems, selectedOptions}) => {
       <ul className="list">
       {currentItems && currentItems.map((item, key) => (
           <>
-          <motion.div animate={{y: 100}}>
+          <motion.div Layout animate={{ y: 100, opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }}>
              {
              selectedOptions.length === 0 ?
-              <Item item={item}/> : foundCategory(item) ?
-              <Item item={item} /> : null
+              <Item item={item} /> : foundCategory(item) ?
+              <Item item={item} /> : <Item item={item} />
              }
           </motion.div>
           </>
