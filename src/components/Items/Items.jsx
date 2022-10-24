@@ -1,6 +1,7 @@
 import React from 'react'
 import moment from 'moment/moment'
 import "../Items/Items.scss"
+import { AnimatePresence, motion } from 'framer-motion/dist/framer-motion'
 
 const Item = ({item}) => {
 
@@ -54,10 +55,13 @@ const Items = ({currentItems, selectedOptions}) => {
       <ul className="list">
       {currentItems && currentItems.map((item, key) => (
           <>
-            {selectedOptions.length === 0 ?
+          <motion.div animate={{y: 100}}>
+             {
+             selectedOptions.length === 0 ?
               <Item item={item}/> : foundCategory(item) ?
               <Item item={item} /> : null
-            }
+             }
+          </motion.div>
           </>
       ))}
       </ul>
