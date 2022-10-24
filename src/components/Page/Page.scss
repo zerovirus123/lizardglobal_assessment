@@ -26,3 +26,39 @@ li {
     }
   }
 }
+
+@media screen and (max-width: 600px){
+  .pagination{
+    font-size: 1.2rem;
+    gap: 1px;
+  }
+}
+
+@media screen and (max-width: 420px){
+  .pagination{
+    font-size: 1rem;
+    gap: 1px;
+  }
+}
+
+@media screen and (max-width: 385px){
+  .pagination{
+    font-size: 0.9rem;
+    gap: 1px;
+  }
+}
+
+@media screen and (max-width: 370px){
+  .pagination{
+    font-size: 0.9rem;
+    gap: 1px;
+  }
+}
+
+@media screen and (max-width: 360px){
+  .pagination{
+    font-size: 0.8rem;
+    gap: 1px;
+  }
+}
+
