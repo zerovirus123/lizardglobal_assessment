@@ -15,7 +15,7 @@ const Item = ({item, display}) => {
 
   return (
     <>
-      <motion.div layout className="item-container" style={{display: display}}>
+      <div className="item-container" style={{display: display}}>
       <img className="avatar-image" src={splitURL(item.author.avatar)} alt={""} />
       <li className="list-content">
         <div className="data-header">Title</div>
@@ -33,7 +33,7 @@ const Item = ({item, display}) => {
         <div className="data-header">Summary</div>
         <div className="data-content">{item.summary}</div>
       </li>
-      </motion.div>
+      </div>
     </>
   )
 }
