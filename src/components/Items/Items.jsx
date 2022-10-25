@@ -53,15 +53,15 @@ const Items = ({currentItems, selectedOptions}) => {
   return (
     <>
       <ul className="list">
-       <AnimatePresence>
+      <AnimatePresence>
       {currentItems && currentItems.map((item, key) => (
-        
-        <motion.div layout animate={{ y: 100, opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }}>
+
+        <motion.div key={key} layout animate={{ y: 100, opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }}>
         <>
           {
           selectedOptions.length === 0 ?
-          <Item key={key} item={item} /> : foundCategory(item) ?
-          <Item key={key} item={item} /> : <Item key={key} item={item} display={"none"}/>
+          <Item item={item} /> : foundCategory(item) ?
+          <Item item={item} /> : <Item item={item} display={"none"}/>
           }     
         </>
         </motion.div>
