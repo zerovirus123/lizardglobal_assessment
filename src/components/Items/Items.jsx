@@ -3,7 +3,7 @@ import moment from 'moment/moment'
 import "../Items/Items.scss"
 import { AnimatePresence, motion } from 'framer-motion/dist/framer-motion'
 
-const Item = ({item}) => {
+const Item = ({item, display}) => {
 
   const parseDateString = (date) => {
     return moment(date).utc().format('YYYY-MM-DD hh:mm:ss A')
@@ -15,8 +15,8 @@ const Item = ({item}) => {
 
   return (
     <>
-      <div className="item-container">
-      <img src={splitURL(item.author.avatar)} alt={""} />
+      <motion.div layout className="item-container" style={{display: display}}>
+      <img className="avatar-image" src={splitURL(item.author.avatar)} alt={""} />
       <li className="list-content">
         <div className="data-header">Title</div>
         <div className="data-content">{item.title}</div>
@@ -33,7 +33,7 @@ const Item = ({item}) => {
         <div className="data-header">Summary</div>
         <div className="data-content">{item.summary}</div>
       </li>
-      </div>
+      </motion.div>
     </>
   )
 }
@@ -53,17 +53,21 @@ const Items = ({currentItems, selectedOptions}) => {
   return (
     <>
       <ul className="list">
+       <AnimatePresence>
       {currentItems && currentItems.map((item, key) => (
-          <>
-          <motion.div Layout animate={{ y: 100, opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }}>
-             {
-             selectedOptions.length === 0 ?
-              <Item item={item} /> : foundCategory(item) ?
-              <Item item={item} /> : <Item item={item} />
-             }
-          </motion.div>
-          </>
+        
+        <motion.div layout animate={{ y: 100, opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }}>
+        <>
+          {
+          selectedOptions.length === 0 ?
+          <Item key={key} item={item} /> : foundCategory(item) ?
+          <Item key={key} item={item} /> : <Item key={key} item={item} display={"none"}/>
+          }     
+        </>
+        </motion.div>
+        
       ))}
+     </AnimatePresence>
       </ul>
     </>
   )
