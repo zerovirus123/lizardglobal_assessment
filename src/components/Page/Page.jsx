@@ -42,8 +42,9 @@ export const Page = ({selectedOptions}) => {
             pageLinkClassName="page-num"
             previousLinkClassName="page-num"
             nextLinkClassName="page-num"
-            activateLinkClassName="active"
+            activeLinkClassName="active"
         />
+
     </>
   )
 }
