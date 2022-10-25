@@ -25,6 +25,7 @@ export const Page = ({selectedOptions}) => {
     const handlePageClick = (event) => {
       const newOffset = (event.selected * itemsPerPage) % data.length;
       setItemOffset(newOffset);
+      window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight)
     }
 
   return (
@@ -44,7 +45,6 @@ export const Page = ({selectedOptions}) => {
             nextLinkClassName="page-num"
             activeLinkClassName="active"
         />
-
     </>
   )
 }

@@ -4,6 +4,10 @@ li {
   list-style-type: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .pagination {
   list-style: none;
   display: flex;
