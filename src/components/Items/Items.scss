@@ -39,16 +39,12 @@
 @media screen and (max-width: 1024px){
   .item-container{
     display: block;
-    width: 85%;
-    height: fit-content;
   }
-
 }
 
 @media screen and (max-width: 800px){
   .item-container{
-    width: 85%;
-    height: fit-content;
+    display: block;
   }
 }
 
