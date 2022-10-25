@@ -5,13 +5,13 @@ import { useState } from "react";
 
 function App() {
 
-  const [selectedOptions, setSelectedOptions] = useState([])
+  const [selectedCategories, setSelectedCategories] = useState([])
 
   return (
     <>
     <APIContextProvider>
-      <CategorySelector setSelectedOptions={setSelectedOptions} />
-      <Page selectedOptions={selectedOptions} />
+      <CategorySelector setSelectedCategories={setSelectedCategories} />
+      <Page selectedCategories={selectedCategories} />
     </APIContextProvider>
     </>
   );

@@ -21,13 +21,13 @@ const categoryOptions = [
     { value: 'Platform News and Updates', label: 'Platform News and Updates' },
   ]
 
-const CategorySelector = ({setSelectedOptions}) => {
+const CategorySelector = ({setSelectedCategories}) => {
 
-  const [selectedOptions, setOptions] = useState([])
+  const [selectedCategories, setOptions] = useState([])
 
   const handleChange = (value) => {
     setOptions()
-    setSelectedOptions(value)
+    setSelectedCategories(value)
   }
 
   return (
@@ -36,7 +36,7 @@ const CategorySelector = ({setSelectedOptions}) => {
       <h3>Select Category</h3>
 
       <Select
-        defaultValue={selectedOptions}
+        defaultValue={selectedCategories}
         onChange={handleChange}
         options={categoryOptions}
         className="selector"

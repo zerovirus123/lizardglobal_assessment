@@ -38,14 +38,14 @@ const Item = ({item, display}) => {
   )
 }
 
-const Items = ({currentItems, selectedOptions}) => {
-  let selectedOptionsValue = []
-  selectedOptions.map((option) => {
-    selectedOptionsValue.push(option.value)
+const Items = ({currentItems, selectedCategories}) => {
+  let selectedCategoriesValue = []
+  selectedCategories.map((option) => {
+    selectedCategoriesValue.push(option.value)
   })
 
   const foundCategory = (item) => {
-    return item.categories.some((category) => selectedOptionsValue.includes(category.name))
+    return item.categories.some((category) => selectedCategoriesValue.includes(category.name))
   }
 
   // if no categories are selected, render everything
@@ -59,7 +59,7 @@ const Items = ({currentItems, selectedOptions}) => {
         <motion.div key={key} layout animate={{ y: 100, opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }}>
         <>
           {
-          selectedOptions.length === 0 ?
+          selectedCategories.length === 0 ?
           <Item item={item} /> : foundCategory(item) ?
           <Item item={item} /> : <Item item={item} display={"none"}/>
           }     

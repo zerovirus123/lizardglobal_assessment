@@ -4,7 +4,7 @@ import "../Page/Page.scss"
 import { useAPI } from '../../API/APIContext'
 import Items from '../Items/Items'
 
-export const Page = ({selectedOptions}) => {
+export const Page = ({selectedCategories}) => {
 
     const itemsPerPage = 10;
     const [currentItems, setCurrentItems] = useState([])
@@ -30,7 +30,7 @@ export const Page = ({selectedOptions}) => {
 
   return (
     <>
-      <Items currentItems={currentItems} selectedOptions={selectedOptions} />
+      <Items currentItems={currentItems} selectedCategories={selectedCategories} />
       <ReactPaginate
             breakLabel="..."
             onPageChange={handlePageClick}
