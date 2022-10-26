@@ -16,17 +16,17 @@ Styling is done with SASS preprocessor language. Media queries are used to scale
 
 ## Milestones
 
-[x] Retrieve the data from the mock API.<br />
-[x] Output the data in a list, including properties from the data that are appropriate for a list view.<br />
-[x] Implement a category filter - this can be single or multi-select.<br />
-[x] Implement pagination - this can be traditional numbered pages or "load more".<br />
-[x] Use semantic markup where possible.<br />
-[x] Create a responsive layout with HTML and CSS.<br />
+- [x] Retrieve the data from the mock API.<br />
+- [x] Output the data in a list, including properties from the data that are appropriate for a list view.<br />
+- [x] Implement a category filter - this can be single or multi-select.<br />
+- [x] Implement pagination - this can be traditional numbered pages or "load more".<br />
+- [x] Use semantic markup where possible.<br />
+- [x] Create a responsive layout with HTML and CSS.<br />
 
 ## Additional Milestones
 
-[] Use client-side routing to create a "detail" page.<br />
-[] Persist filter state in the query string.<br />
-[x] Include animated transitions between application state, e.g. when filtering.<br />
-[] Convert the application to use TypeScript instead of JavaScript.<br />
-[x] Use a CSS preprocessor or CSS-in-JS rather than plain CSS.<br />
+- [] Use client-side routing to create a "detail" page.<br />
+- [] Persist filter state in the query string.<br />
+- [x] Include animated transitions between application state, e.g. when filtering.<br />
+- [] Convert the application to use TypeScript instead of JavaScript.<br />
+- [x] Use a CSS preprocessor or CSS-in-JS rather than plain CSS.<br />
