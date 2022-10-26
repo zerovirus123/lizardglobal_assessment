@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Robohash Profile",
+  "name": "React App that displays Robohash profiles fetched from an API",
   "icons": [
     {
       "src": "favicon.ico",
