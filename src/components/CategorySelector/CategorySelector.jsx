@@ -31,7 +31,7 @@ const CategorySelector = ({setSelectedCategories}) => {
   }
 
   return (
-    <>
+    
     <div className="selector-container">
       <h3>Select Category</h3>
 
@@ -44,7 +44,7 @@ const CategorySelector = ({setSelectedCategories}) => {
         isMulti
       />
     </div>
-    </>
+    
   )
 }
 
