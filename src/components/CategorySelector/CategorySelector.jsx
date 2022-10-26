@@ -32,10 +32,11 @@ const CategorySelector = ({setSelectedCategories}) => {
 
   return (
     
-    <div className="selector-container">
-      <h3>Select Category</h3>
+    <div className="selector-container" data-testid="selector-container">
+      <h3 data-testid="selector-title">Select Category</h3>
 
       <Select
+        data-testid="selector"
         defaultValue={selectedCategories}
         onChange={handleChange}
         options={categoryOptions}
