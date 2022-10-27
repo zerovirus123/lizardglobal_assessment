@@ -13,6 +13,7 @@ Styling is done with SASS preprocessor language. Media queries are used to scale
 2.) Install the dependencies with `npm install`.
 3.) To run the project in development mode, type `npm start`.
 4.) To run the project in production mode, type `npm run build`. Then type `serve -s build` to serve the production version.
+5.) To run the unit tests, type `npm test` to run all the tests. To run individual tests, type `npm test src/tests/[test_file.js]`. Sadly the unit tests are not complete. I would like to write more unit tests.
 
 ## Milestones
 
