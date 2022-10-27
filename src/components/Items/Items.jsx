@@ -50,6 +50,7 @@ const Items = ({currentItems, selectedCategories}) => {
 
   // if no categories are selected, render everything
   // else only render items that fall under the selected category
+  // Use framer-motion's AnimatePresence and motion to add page loading animation and filtering animation.
   return (
     <>
       <ul className="list">
