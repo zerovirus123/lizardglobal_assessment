@@ -34,7 +34,7 @@ export const Page = ({selectedCategories}) => {
       <ReactPaginate
             breakLabel="..."
             onPageChange={handlePageClick}
-            pageRangeDisplayed={3} // number of pages to show before the break label
+            pageRangeDisplayed={3}
             pageCount={pageCount}
             previousLabel="<- Previous"
             nextLabel="Next ->"
